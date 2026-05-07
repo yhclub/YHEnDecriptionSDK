@@ -13,7 +13,9 @@ Pod::Spec.new do |s|
 
   s.author       = { "XmYhkj" => "yhkj_xm@163.com" }
 
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "12.0"
+
+  s.ios.deployment_target    = '12.0'
 
   s.source       = { :git => "https://github.com/XmYlzYhkj/YHEnDecriptionSDK.git", :tag => s.version.to_s }
 
