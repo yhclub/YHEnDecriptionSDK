@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "YHEnDecriptionSDK"
-  s.version      = "2.1.0"
+  s.version      = "2.1.2"
   s.summary      = "公司基础SDK之一"
 
   s.description  = "基础SDK之一，提供加密、解密、签名、验证签名。"

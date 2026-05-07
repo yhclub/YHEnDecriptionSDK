@@ -152,6 +152,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(BOOL)verifySMAuthFileData:(NSData *)data appId:(nullable NSString *)appId appSecret:(nullable NSString *)appSecret version:(nullable NSString *)version smKey:(NSString *)smKey iv:(NSString *)iv;
 
 #endif
+
+
++(NSString *)md5:(NSString *)inPutText NS_DEPRECATED_IOS(2_0,3_0, "use -[string yh_md5]");
+
 @end
 
 NS_ASSUME_NONNULL_END

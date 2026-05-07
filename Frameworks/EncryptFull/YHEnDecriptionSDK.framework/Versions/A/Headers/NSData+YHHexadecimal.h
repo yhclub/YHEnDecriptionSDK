@@ -1,8 +1,6 @@
 //
 //  NSData+YHHexadecimal.h
-//  YhPaymentAPP
-//
-//  Created by ljt on 2016/12/5.
+//  Created by ljt on 2026/5/7.
 //  Copyright © 2016年 jagtu. All rights reserved.
 //
 

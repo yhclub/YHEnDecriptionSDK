@@ -36,11 +36,11 @@
  * content 待加密字符
  * return 加密后的字符串
  */
-+ (NSString *)encryptUseRSA:(NSString *)content;
++ (NSString *_Nullable)encryptUseRSA:(NSString *_Nonnull)content;
 
-+ (NSString *)encryptUseRSA:(NSString *)content publicKey:(NSString *)publicKeyString;
++ (NSString *_Nullable)encryptUseRSA:(NSString *_Nonnull)content publicKey:(NSString *_Nullable)publicKeyString;
 
-+ (NSString *)encryptUseRSA:(NSString *)content publicKey:(NSString *)publicKeyString secPadding:(SecPadding)secPadding;
++ (NSString *_Nullable)encryptUseRSA:(NSString *_Nonnull)content publicKey:(NSString *_Nullable)publicKeyString secPadding:(SecPadding)secPadding;
 
 /*
  * RSA 数字签名验证
@@ -48,10 +48,10 @@
  * sig 待验证的签名字符串
  * return yes签名正确
  */
-+ (BOOL)verifySignatureWithString:(NSString *)content signature:(NSString *)sig;
++ (BOOL)verifySignatureWithString:(NSString *_Nonnull)content signature:(NSString *_Nullable)sig;
 
 
-+ (BOOL)verifySignatureWithString:(NSString *)content signature:(NSString *)sig publicKey:(NSString *)publicKeyStr;
++ (BOOL)verifySignatureWithString:(NSString *_Nonnull)content signature:(NSString *_Nullable)sig publicKey:(NSString *_Nullable)publicKeyStr;
 
 
 #pragma mark ----------------------------:: AES ::----------------------------
@@ -62,7 +62,7 @@
  * symmetricKey    对称密钥 前16位有效
  * return 加密后的字符串
  */
-+ (NSString *)encryptUseAES:(NSString *)content withKey:(NSString *)key withIv:(NSString *)iv withEncodeType:(NSString *)encode;
++ (NSString *_Nullable)encryptUseAES:(NSString *_Nonnull)content withKey:(NSString *_Nullable)key withIv:(NSString *_Nullable)iv withEncodeType:(NSString *_Nullable)encode;
 
 /*
  * AES 解密
@@ -70,9 +70,9 @@
  * symmetricKey    对称密钥 前16位有效
  * return 解密后的Data
  */
-+ (NSData *)dataWithDecryptAESWrap:(NSString *)encryptedString withKey:(NSString *)key withIv:(NSString *)iv withEncodeType:(NSString *)encode;
++ (NSData *_Nullable)dataWithDecryptAESWrap:(NSString *_Nonnull)encryptedString withKey:(NSString *_Nonnull)key withIv:(NSString *_Nullable)iv withEncodeType:(NSString *_Nullable)encode;
 
-+ (NSString *)decryptAESWrap:(NSString *)encryptedString withKey:(NSString *)key withIv:(NSString *)iv withEncodeType:(NSString *)encode;
++ (NSString *_Nullable)decryptAESWrap:(NSString *_Nonnull)encryptedString withKey:(NSString *_Nonnull)key withIv:(NSString *_Nullable)iv withEncodeType:(NSString *_Nullable)encode;
 
 #pragma mark ----------------------------:: 兼容分库后外部用到的国密算法 ::----------------------------
 
@@ -82,7 +82,7 @@
  @param plainData for input plain data
  @return hash result, null for error
  */
-+ (NSData * _Nullable)sm3_hashWithPainData:(NSData *)plainData;
++ (NSData * _Nullable)sm3_hashWithPainData:(NSData *_Nonnull)plainData;
 
 
 /**
@@ -92,7 +92,7 @@
  @param key for sm4 cbc-mode 健康合肥、吉一通等送检项目
  @return encrypt result, null for error
  */
-+ (NSData * _Nullable)sm4_cbcEncryptData:(NSData *)plainData withCipherKey:(NSString *)key;
++ (NSData * _Nullable)sm4_cbcEncryptData:(NSData *_Nonnull)plainData withCipherKey:(NSString *_Nonnull)key;
 
 
 /**
@@ -102,7 +102,7 @@
  @param key for sm4 ecb-mode 国家医保局项目
  @return encrypt result, null for error
  */
-+ (NSData * _Nullable)sm4_ecbEncryptData:(NSData *)plainData withCipherKey:(NSString *)key NS_AVAILABLE_IOS(8_0);
++ (NSData * _Nullable)sm4_ecbEncryptData:(NSData *_Nonnull)plainData withCipherKey:(NSString *_Nonnull)key NS_AVAILABLE_IOS(8_0);
 
 /**
  sign plain string for sm2
@@ -112,7 +112,7 @@
  @param key for private
  @return signed string
  */
-+ (NSString * _Nullable)sm2_signPlainString:(NSString *)str withUID:(NSString *)uid withPrivateKey:(NSString *)key;
++ (NSString * _Nullable)sm2_signPlainString:(NSString *_Nonnull)str withUID:(NSString *_Nullable)uid withPrivateKey:(NSString *_Nullable)key;
 
 /**
  decrypt cipher data for sm4
@@ -121,7 +121,7 @@
  @param key for sm4 cbc-mode
  @return decrypt result, null for error
  */
-+ (NSData * _Nullable)sm4_decryptData:(NSData *)cipherData withCipherKey:(NSString *)key NS_AVAILABLE_IOS(8_0);
++ (NSData * _Nullable)sm4_decryptData:(NSData *_Nonnull)cipherData withCipherKey:(NSString *_Nonnull)key NS_AVAILABLE_IOS(8_0);
 
 /**
  decrypt cipher data for sm4
@@ -131,7 +131,15 @@
  @param iv for sm4 cbc-mode. recommend 0102030405060708
  @return decrypt result, null for error
  */
-+ (NSData * _Nullable)sm4_decryptData:(NSData *)cipherData withCipherKey:(NSString *)key iv:(NSString *)iv NS_AVAILABLE_IOS(8_0);
++ (NSData * _Nullable)sm4_decryptData:(NSData * _Nonnull)cipherData withCipherKey:(NSString *_Nonnull)key iv:(NSString *_Nullable)iv NS_AVAILABLE_IOS(8_0);
+
+
+/*
+ * md5加密
+ * content 待加密字符
+ * return 加密后的字符串
+ */
++(NSString *_Nullable)md5:(NSString *_Nullable)content NS_DEPRECATED_IOS(2_0,3_0, "use -[string yh_md5]");
 
 @end
 
